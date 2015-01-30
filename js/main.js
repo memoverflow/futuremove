@@ -43,6 +43,7 @@ require(['jquery', 'fullPage', 'transit', "slide", "map"], function() {
 		view1: $(".view-1"),
 		slider: $(".slider"),
 		slideIndex: 0,
+		pop:$(".team-photo"),
 		//car animation & header animation
 		carAnimate: function(index) {
 
@@ -95,6 +96,7 @@ require(['jquery', 'fullPage', 'transit', "slide", "map"], function() {
 		//init fullpage transition
 		init: function() {
 			lily.eCar.hide();
+			//lily.pop.find("li").css({width:"0px",height:"0px"});
 			lily.fullPage.fullpage({
 				css3: true,
 				easing: 'easeInQuart',
@@ -106,6 +108,11 @@ require(['jquery', 'fullPage', 'transit', "slide", "map"], function() {
 				keyboardScrolling: true,
 				onLeave: function(index, nextIndex, direction) {
 					lily.move(lily.car, nextIndex);
+				},
+				afterLoad:function(anchorLink,index){
+					if(index == 5){
+						lily.popHead();
+					}
 				}
 			});
 			lily.car.next().find("li").on("click", function() {
@@ -126,8 +133,13 @@ require(['jquery', 'fullPage', 'transit', "slide", "map"], function() {
 				timeout: 10000, 
 				speed: 1000
 			});
+		},
+		popHead:function(){
+			lily.pop.find("li").addClass("tada animated").one('webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend', function(){
+		      $(this).removeClass("tada");
+		      $(this).removeClass("animated");
+		    });
 		}
-
 	}
 
 	$(document).ready(function() {
