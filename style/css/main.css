@@ -54,13 +54,41 @@ header h1.logo{ display: block; width: 300px; height: 38px; background: url(../i
 /*内容区域*/
 .content-wrap{ width: 1280px; margin: 0px auto; }
 /*汽车*/
-.car-wrap{ position: absolute; top: 50%; left: 50%; z-index: 1; margin: -180px 0px 0px -200px; width: 400px; height: 400px; border-radius: 500px; background: url(../images/view-2.jpg) top center no-repeat; border: solid 2px #ed1c24; overflow: hidden; }
-.car-wrap .car{ height: 100%; background: url(../images/car.png) bottom center no-repeat, url(../images/car-bg.png) bottom center no-repeat; background-size: 100% auto; }
+.car-wrap{ position: absolute; top: 50%; left: 50%; z-index: 3; margin: -180px 0px 0px -200px; width: 400px; height: 400px; border-radius: 500px; background: url(../images/car-bg.png) bottom center no-repeat, url(../images/view-2.jpg) top center no-repeat; background-size: 100% auto, auto auto; border: solid 2px #ed1c24; overflow: hidden; }
+.car{ position: absolute; top: 50%; left: 50%; z-index: 10; margin: -180px 0px 0px -200px; width: 400px; height: 400px; background: url(../images/car.png) bottom center no-repeat; background-size: 100% auto; }
 /*视图1*/
-.view-1{ background: #000 url(../images/view-1.jpg) bottom no-repeat; background-size: auto 100%; }
-@media screen and (min-width: 1441px) { .view-1{ background: #000 url(../images/view-1.jpg) bottom no-repeat; background-size: 100% auto; } } /*分辨率大于1440，针对高分辨率*/
-.view-1 h2{ display: block; font-size: 148px; color: #ed1c24; text-align: center; line-height: 150px; margin-top: 180px; margin-bottom: 10px; font-weight: normal; }
-.view-1 p{ font-size: 20px; color: #fff; text-align: center; line-height: 48px; }
+.view-1{ width: 100%; height: 100%; background: #000 ; }
+.view-1 .slider{ width: 100%; height: 100%; position: relative; }
+.view-1 ul{ width: 100%; height: 100%; }
+.view-1 ul li{ position: absolute; top: 0px; left: 0px; width: 100%; height: 100%; }
+.view-1 ul li p{ position: absolute; z-index: 8; }
+.view-1 ul li p strong{ display: block; line-height: 130%; color: #fff; font-weight: normal; }
+.view-1 ul li p span{ display: block; font-size: 48px; color: #fff; line-height: 150%; }
+
+.view-1 ul li:nth-child(1){ z-index: 7; background: #000 url(../images/view-1-1.jpg) top no-repeat; background-size: auto 100%; }
+.view-1 ul li:nth-child(2){ display: none; z-index: 6; background: #000 url(../images/view-1-2.jpg) top no-repeat; background-size: auto 100%; }
+.view-1 ul li:nth-child(3){ display: none; z-index: 5; background: #000 url(../images/view-1-3.jpg) top no-repeat; background-size: auto 100%; }
+.view-1 ul li:nth-child(4){ display: none; z-index: 4; background: #000 url(../images/view-1-4.jpg) top no-repeat; background-size: auto 100%; }
+.view-1 ul li:nth-child(5){ display: none; z-index: 3; background: #000 url(../images/view-1-5.jpg) top no-repeat; background-size: auto 100%; }
+@media screen and (min-width: 1441px) {
+	.view-1 ul li:nth-child(3){ background: #000 url(../images/view-1-3.jpg) top no-repeat; background-size: 100% auto; } 
+} /*分辨率大于1440，针对高分辨率*/
+.view-1 ul li:nth-child(1) p{ top: 150px; left: 0px; width: 100%; text-align: center; }
+.view-1 ul li:nth-child(1) strong{ font-size: 80px; text-align: center; }
+.view-1 ul li:nth-child(1) span{ text-align: center; color: #ed1c24; }
+.view-1 ul li:nth-child(2) p{ top: 50%; left: 10%; }
+.view-1 ul li:nth-child(2) strong{ font-size: 80px; }
+.view-1 ul li:nth-child(2) span{ font-size: 24px; }
+.view-1 ul li:nth-child(3) p{ top: 120px; right: 15%; }
+.view-1 ul li:nth-child(3) strong{ font-size: 74px; color: rgba(0,0,0,0.6); }
+.view-1 ul li:nth-child(3) span{ font-size: 24px; color: rgba(0,0,0,0.6); }
+.view-1 ul li:nth-child(4) p{ top: 220px; right: 15%; }
+.view-1 ul li:nth-child(4) strong{ font-size: 86px; color: #fff; }
+.view-1 ul li:nth-child(4) span{ font-size: 24px; color: #fff; }
+.view-1 ul li:nth-child(5) p{ top: 300px; right: 15%; }
+.view-1 ul li:nth-child(5) strong{ font-size: 74px; color: #fff; line-height: 130%; }
+.view-1 ul li:nth-child(5) span{ font-size: 24px; color: #fff; }
+
 /*视图2*/
 .view-2{ position: relative; background: #fff; }
 .view-2 h2.title{ position: absolute; top: 10%; left: 50%; margin-left: -375px; display: block; width: 750px; height: 80px; background: url(../images/view-2-title.png) no-repeat, url(../images/view-2.jpg) top center no-repeat; background-size: 100% 100%, auto auto; }
@@ -77,8 +105,9 @@ header h1.logo{ display: block; width: 300px; height: 38px; background: url(../i
 .view-2 ul li:nth-child(4){ bottom: 12%; right: 10%; }
 /*视图3*/
 .view-3{ position: relative; background: #fff; background: url(../images/view-3.jpg) bottom center no-repeat; background-size: auto 100%; }
-.view-3 .car-wrap{ background: rgba(0,0,0,0); border: solid 2px rgba(255,255,255,0); }
-.view-3 .car{ background: url(../images/car.png) bottom center no-repeat; background-size: 100% auto; }
+@media screen and (min-width: 1441px) {
+	.view-3{ background: #000 url(../images/view-3.jpg) top no-repeat; background-size: 100% auto; } 
+} /*分辨率大于1440，针对高分辨率*/
 .view-3 ul li{ position: absolute; }
 .view-3 ul li:nth-child(1){ top: 15%; left: 15%; width: 220px; height: 220px; background: url(../images/view-3-1.png) no-repeat; background-size: 100% 100%; }
 .view-3 ul li:nth-child(2){ top: 15%; right: 10%; width: 260px; height: 260px; background: url(../images/view-3-2.png) no-repeat; background-size: 100% 100%; }
@@ -105,7 +134,8 @@ header h1.logo{ display: block; width: 300px; height: 38px; background: url(../i
 /*视图5*/
 .view-5{ background: #000 url(../images/view-5.jpg) center no-repeat; background-size: auto 100%; }
 @media screen and (min-width: 1441px) { .view-5{ background: #000 url(../images/view-5.jpg) top no-repeat; background-size: 100% auto; } } /*分辨率大于1440，针对高分辨率*/
-.view-5 .title{ text-align: center; margin-top: 120px; color: #fff; }
+.view-5 .content-wrap{ height: 100%; }
+.view-5 .title{ text-align: center; margin-top: 220px; color: #fff; }
 .view-5 .title h2{ display: block; font-size: 74px; font-weight: normal; margin-bottom: 30px; }
 .view-5 .title h2:first-letter{ color: #ed1c24; }
 .view-5 .title p{ font-size: 14px; line-height: 30px; color: #aaa; }
@@ -160,4 +190,5 @@ header h1.logo{ display: block; width: 300px; height: 38px; background: url(../i
 .view-6 .contact .footer{ position: absolute; bottom: 0px; left: 0px; width: 100%; height: 80px; background: #222; overflow: hidden; }
 .view-6 .contact .footer .copyright{ float: left; font-size: 14px; color: #555; margin-top: 35px; margin-left: 20px; }
 .view-6 .contact .footer h5.logo{ float: right; display: block; width: 118px; height: 30px; background: url(../images/logo-gray.png) no-repeat; background-size: 100% 100%; margin: 25px 20px; font-size: 0px; line-height: 0px; text-indent: -1000px; overflow: hidden; }
+
 
