@@ -5,7 +5,8 @@
  * @version v1.0
  */
 // 配置加载项
-require.config({　　　　
+require.config({　
+	waitSeconds: 60,　　　
 	paths: {　　　　　　
 		"jquery": "jquery",
 		"fullPage": "jquery.fullPage.min",
@@ -30,7 +31,7 @@ require.config({　　　　
  *Design by Zhongfei.Wei
  *Scripts by Lucas Ren
  */
-require(['jquery', 'fullPage', 'transit', "slide", "map"], function() {
+require(['jquery', 'fullPage', 'transit', "slide", "map"], function($,f,t,s,m) {
 	var lily = {
 		distance: 48,
 		whiteCar: [1, 3, 5, 6],
@@ -139,11 +140,23 @@ require(['jquery', 'fullPage', 'transit', "slide", "map"], function() {
 		      $(this).removeClass("tada");
 		      $(this).removeClass("animated");
 		    });
+		},
+		show:function(){
+			$(".view-2").show();
+			$(".view-3").show();
+			$(".view-4").show();
+			$(".view-5").show();
+			$(".view-6").show();
+		},
+		partner:function(){
+
 		}
 	}
 
 	$(document).ready(function() {
+		
 		lily.init();
+		lily.show();
 		lily.map();
 		lily.bgTransition();
 	});

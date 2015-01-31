@@ -168,6 +168,8 @@ header h1.logo{ display: block; width: 300px; height: 38px; background: url(../i
 .view-6 .partner-list li:nth-child(3){ background: url(../images/partner03.png) no-repeat; background-size: 100% 100%; }
 .view-6 .partner-list li:nth-child(4){ background: url(../images/partner04.png) center no-repeat; background-size: 80% 80%; }
 .view-6 .partner-list li:nth-child(5){ background: url(../images/partner05.png) center no-repeat; background-size: 80% 80%; }
+.view-6 .partner-list li:nth-child(6){ background: url(../images/partner05.png) center no-repeat; background-size: 80% 80%; }
+.view-6 .partner-list li:nth-child(7){ background: url(../images/partner05.png) center no-repeat; background-size: 80% 80%; }
 .view-6 .contact{ position: relative; height: 55%; background: #333; overflow: hidden; }
 .view-6 .contact-menu, .view-6 .contact-us, .view-6 .contact-talk, .view-6 .contact-qr{ float: left; margin-top: 60px; }
 .view-6 .contact strong.title{ display: block; color: #646464; font-size: 16px; font-weight: normal; margin-bottom: 30px; }
