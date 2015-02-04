@@ -1,5 +1,5 @@
 /*全局========================================*/
-html,body,div,ul,ol,li,dl,dd,dt,header,footer,p,span,strong,i,h1,h2,h3,h4,h5,table,thead,tbody,tfoot,th,td,img{ margin: 0px; padding: 0px; }
+html,body,div,ul,ol,li,dl,dd,dt,header,footer,p,span,strong,i,h1,h2,h3,h4,h5,table,thead,tbody,tfoot,th,td,img,hr{ margin: 0px; padding: 0px; }
 body{ font-size: 13px; background-color: #fff; font-family: 'FutureMove Light', Helvetica, Airal; line-height: 150%; }
 body,html{ height: 100%; }
 ul{ list-style: none; }
@@ -23,6 +23,13 @@ input,textarea,select{ outline: none; }
 .icon-24-05{ background-position: -120px -48px; }
 .icon-24-06{ background-position: -168px -48px; }
 .icon-24-07{ background-position: -216px -48px; }
+.icon-24-08{ background-position: -264px -48px; }
+
+.icon-flag-01{ background-position: 0px -168px; }
+.icon-flag-02{ background-position: -24px -168px; }
+.icon-flag-03{ background-position: -48px -168px; }
+.icon-flag-04{ background-position: -72px -168px; }
+.icon-flag-05{ background-position: -96px -168px; }
 
 .icon-48-01{ background-position: 0px 0px; }
 .icon-48-02{ background-position: -96px 0px; }
@@ -34,17 +41,18 @@ input,textarea,select{ outline: none; }
 
 /*页头========================================*/
 header{ position: fixed; z-index: 10; top: 0px; left: 0px; width: 100%; height: 100px; background-color: #fff; }
-header h1.logo{ display: block; width: 300px; height: 38px; background: url(../images/logo.png) no-repeat; background-size: 100% 100%; margin: 31px auto; font-size: 0px; color: #000; text-indent: -1000px; overflow: hidden; }
+header h1.logo{ display: block; width: 300px; height: 38px; background: url(../images/logo.gif) no-repeat; background-size: 100% 100%; margin: 31px auto; font-size: 0px; color: #000; text-indent: -1000px; overflow: hidden; }
 /*迷你页头*/
 .header-mini{ height: 60px; background: #ffffff; }
 .header-mini h1.logo{ width: 210px; height: 26px; margin: 17px auto; }
 /*语言*/
-.language{ position: absolute; top: 30px; right: 20px; color: #888; width: 90px; background: #fff; border: solid 1px #fff; font-size: 13px; line-height: 30px; border-radius: 3px; font-family: verdana; overflow: hidden; }
+.language{ position: absolute; top: 30px; right: 20px; color: #888; width: 120px; background: #fff; border: solid 1px #fff; font-size: 13px; line-height: 30px; border-radius: 3px; font-family: verdana; overflow: hidden; }
 .language:hover{ border: solid 1px #eee; box-shadow: 0px 2px 2px rbga(0,0,0,0.8); background: #fff; }
+.language i[class*="flag"]{ margin-right: 5px; }
 .language p{ position: relative; padding: 3px 10px; }
-.language p i{ position: absolute; top: 8px; right: 8px; }
+.language p i.icon-24-07{ position: absolute; top: 8px; right: 8px; }
 .language p:hover{ color: #333; cursor: pointer; }
-.language p:hover i.icon{ background-position: -240px -48px; }
+.language p:hover i.icon-24-07{ background-position: -240px -48px; }
 .language ul{ display: none; border-top: solid 1px #eee; overflow: hidden; }
 .language:hover ul{ display: block; }
 .language li{ border-bottom: solid 1px #f5f5f5; padding: 5px 10px; }
@@ -76,8 +84,8 @@ header h1.logo{ display: block; width: 300px; height: 38px; background: url(../i
 .view-1 ul{ width: 100%; height: 100%; }
 .view-1 ul li{ position: absolute; top: 0px; left: 0px; width: 100%; height: 100%; }
 .view-1 ul li p{ position: absolute; z-index: 8; }
-.view-1 ul li p strong{ display: block; line-height: 130%; color: #fff; font-weight: normal; }
-.view-1 ul li p span{ display: block; font-size: 48px; color: #fff; line-height: 150%; }
+.view-1 ul li p strong{ display: block; line-height: 130%; color: #fff; }
+.view-1 ul li p span{ display: block; font-size: 48px; color: #fff; line-height: 150%; font-weight: bold; }
 
 .view-1 ul li:nth-child(1){ z-index: 7; background: #000 url(../images/view-1-1.jpg) top no-repeat; background-size: auto 100%; }
 .view-1 ul li:nth-child(2){ display: none; z-index: 6; background: #000 url(../images/view-1-2.jpg) top no-repeat; background-size: auto 100%; }
@@ -85,8 +93,17 @@ header h1.logo{ display: block; width: 300px; height: 38px; background: url(../i
 .view-1 ul li:nth-child(4){ display: none; z-index: 4; background: #000 url(../images/view-1-4.jpg) top no-repeat; background-size: auto 100%; }
 .view-1 ul li:nth-child(5){ display: none; z-index: 3; background: #000 url(../images/view-1-5.jpg) top no-repeat; background-size: auto 100%; }
 @media screen and (min-width: 1441px) {
-	.view-1 ul li:nth-child(3){ background: #000 url(../images/view-1-3.jpg) top no-repeat; background-size: 100% auto; } 
+	.view-1 ul li{ background-size: 100% auto!important; } 
 } /*分辨率大于1440，针对高分辨率*/
+.view-1 ul li strong{ display: block; position: absolute; }
+.view-1 ul li:nth-child(1) strong{ top: 180px; left: 50%; margin-left: -200px; width: 400px; height: 184px; background: url(../images/view-1-1-title.png) no-repeat; background-size: 400px 184px;  }
+.view-1 ul li:nth-child(2) strong{ top: 50%; left: 10%; width: 630px; height: 120px; background: url(../images/view-1-2-title.png) no-repeat; background-size: 629px 120px;  }
+.view-1 ul li:nth-child(3) strong{ top: 140px; right: 10%; width: 628px; height: 120px; background: url(../images/view-1-3-title.png) no-repeat; background-size: 628px 120px;  }
+.view-1 ul li:nth-child(4) strong{ top: 220px; right: 15%; width: 448px; height: 120px; background: url(../images/view-1-4-title.png) no-repeat; background-size: 448px 120px;  }
+.view-1 ul li:nth-child(5) strong{ top: 300px; right: 10%; width: 768px; height: 120px; background: url(../images/view-1-5-title.png) no-repeat; background-size: 768px 120px;  }
+
+
+/*
 .view-1 ul li:nth-child(1) p{ top: 150px; left: 0px; width: 100%; text-align: center; }
 .view-1 ul li:nth-child(1) strong{ font-size: 80px; text-align: center; }
 .view-1 ul li:nth-child(1) span{ text-align: center; color: #ed1c24; }
@@ -102,7 +119,7 @@ header h1.logo{ display: block; width: 300px; height: 38px; background: url(../i
 .view-1 ul li:nth-child(5) p{ top: 300px; right: 15%; }
 .view-1 ul li:nth-child(5) strong{ font-size: 74px; color: #fff; line-height: 130%; }
 .view-1 ul li:nth-child(5) span{ font-size: 24px; color: #fff; }
-
+*/
 /*视图2*/
 .view-2{ position: relative; background: #fff; }
 .view-2 h2.title{ position: absolute; top: 10%; left: 50%; margin-left: -375px; display: block; width: 750px; height: 80px; background: url(../images/view-2-title.png) no-repeat, url(../images/view-2.jpg) top center no-repeat; background-size: 100% 100%, auto auto; }
@@ -178,13 +195,13 @@ header h1.logo{ display: block; width: 300px; height: 38px; background: url(../i
 .view-6 .partner-list ul{ width: 10000px; }
 .view-6 .partner-list li{ float: left; width: 140px; height: 56px; margin: 12px 50px; }
 .view-6 .partner-list li a{ display: block; width: 140px; height: 56px; }
-.view-6 .partner-list li:nth-child(1) a{ background: url(../images/partner01.png) 0px 0px no-repeat; background-size: 100% auto; }
-.view-6 .partner-list li:nth-child(2) a{ background: url(../images/partner02.png) 0px 0px no-repeat; background-size: 100% auto; }
-.view-6 .partner-list li:nth-child(3) a{ background: url(../images/partner03.png) 0px 0px no-repeat; background-size: 100% auto; }
-.view-6 .partner-list li:nth-child(4) a{ background: url(../images/partner05.png) 0px 0px no-repeat; background-size: 100% auto; }
+.view-6 .partner-list li:nth-child(1) a{ background: url(../images/partner03.png) 0px 0px no-repeat; background-size: 100% auto; }
+.view-6 .partner-list li:nth-child(2) a{ background: url(../images/partner01.png) 0px 0px no-repeat; background-size: 100% auto; }
+.view-6 .partner-list li:nth-child(3) a{ background: url(../images/partner02.png) 0px 0px no-repeat; background-size: 100% auto; }
+.view-6 .partner-list li:nth-child(4) a{ background: url(../images/partner08.png) 0px 0px no-repeat; background-size: 100% auto; }
 .view-6 .partner-list li:nth-child(5) a{ background: url(../images/partner06.png) 0px 0px no-repeat; background-size: 100% auto; }
 .view-6 .partner-list li:nth-child(6) a{ background: url(../images/partner07.png) 0px 0px no-repeat; background-size: 100% auto; }
-.view-6 .partner-list li:nth-child(7) a{ background: url(../images/partner08.png) 0px 0px no-repeat; background-size: 100% auto; }
+.view-6 .partner-list li:nth-child(7) a{ background: url(../images/partner05.png) 0px 0px no-repeat; background-size: 100% auto; }
 .view-6 .partner-list li:nth-child(8) a{ background: url(../images/partner09.png) 0px 0px no-repeat; background-size: 100% auto; }
 .view-6 .partner-list li a:hover{ background-position: 0px -56px; }
 
@@ -196,8 +213,10 @@ header h1.logo{ display: block; width: 300px; height: 38px; background: url(../i
 .view-6 .contact-menu ul li a{ color: #ddd; font-size: 15px; }
 .view-6 .contact-menu ul li a:hover{ color: #fff; }
 .view-6 .contact-us{ width: 30%; }
-.view-6 .contact-us li{ margin-bottom: 30px; color: #aaa; font-size: 16px; line-height: 140%; padding-left: 34px; }
+.view-6 .contact-us li{ margin-bottom: 20px; color: #aaa; font-size: 15px; line-height: 140%; padding-left: 34px; }
 .view-6 .contact-us li i.icon{ position: absolute; margin-left: -34px; }
+.view-6 .contact-us li a{ display: block; margin-bottom: 8px; color: #aaa; }
+.view-6 .contact-us li a:hover{ color: #fff; }
 .view-6 .contact-talk{ width: 30%; }
 .view-6 .contact-talk input[type="text"], .view-6 .contact-talk textarea{ display: block; width: 60%; border: none; background: #2a2a2a; margin-bottom: 10px; padding: 10px; font-size: 14px; color: #888; }
 .view-6 .contact-talk input[type="text"]:focus, .view-6 .contact-talk textarea:focus{ background: #222; }
@@ -205,7 +224,7 @@ header h1.logo{ display: block; width: 300px; height: 38px; background: url(../i
 .view-6 .contact-talk input[type="button"]{ border: none; background: #e61d25; color: #fff; font-size: 12px; font-weight: normal; padding: 8px 20px; cursor: pointer; }
 .view-6 .contact-talk input[type="button"]:hover{ background: #f4373e; }
 .view-6 .contact-attention{ width: 20%; overflow: hidden; }
-.view-6 .contact-attention p.qr-img{ display: block; background: #2a2a2a; padding: 10px; width: 120px; height: 120px; overflow: hidden; margin-bottom: 5px; }
+.view-6 .contact-attention p.qr-img{ display: block; background: #2a2a2a; padding: 10px; width: 120px; height: 120px; overflow: hidden; margin-bottom: 10px; }
 .view-6 .contact-attention p.qr-img img{ border: solid 5px #fff; }
 .view-6 .contact-attention .blog{ width: 137px; margin-left: 3px; }
 .view-6 .contact-attention .blog li{ float: left; width: 45px; text-align: center; border-right: solid 1px #454545; }
@@ -218,5 +237,20 @@ header h1.logo{ display: block; width: 300px; height: 38px; background: url(../i
 .view-6 .contact .footer{ position: absolute; bottom: 0px; left: 0px; width: 100%; height: 80px; background: #222; overflow: hidden; }
 .view-6 .contact .footer .copyright{ float: left; font-size: 14px; color: #555; margin-top: 35px; margin-left: 20px; }
 .view-6 .contact .footer h5.logo{ float: right; display: block; width: 118px; height: 30px; background: url(../images/logo-gray.png) no-repeat; background-size: 100% 100%; margin: 25px 20px; font-size: 0px; line-height: 0px; text-indent: -1000px; overflow: hidden; }
-
-
+/*遮罩层*/
+.shade{ position: fixed; z-index: 100; top: 0px; left: 0px; width: 100%; height: 100%; background: rgba(0,0,0,0.9); }
+/*个人简介*/
+.resume{ position: fixed; z-index: 110; top: 50px; left: 50%; margin-left: -440px; width: 880px; }
+.resume-left{ float: left; width: 150px; margin-right: 50px;  }
+.resume .photo{ width: 150px; height: 150px; border-radius: 150px; overflow: hidden; }
+.resume .name{ display: block; width: 150px; text-align: center; color: #fff; font-size: 24px; margin-top: 30px; }
+.resume .name span{ display: block; width: 150px; text-align: center; margin: 10px 0px; font-size: 18px; font-weight: normal; color: #ed1c24; }
+.resume .close{ display: block; width: 150px; border-top: solid 1px #333; border-bottom: solid 1px #333; margin-top: 40px; padding: 20px 0px; text-align: center; color: #888; font-size: 15px; cursor: pointer; }
+.resume .close i{ margin-right: 5px; }
+.resume .close strong{ display: block; margin-top: 5px; }
+.resume .close:hover{ background: rgba(0,0,0,0.9); border-color: #555; color: #aaa; }
+.resume .close:hover i{ background-position: -288px -48px; }
+.resume .text{ float: right; width: 600px; font-size: 13px; color: #fff; border-left: solid 1px #333; border-right: solid 1px #333; padding: 0px 39px; }
+.resume .text strong{ display: block; font-size: 18px; margin: 10px 0px 10px; padding: 10px 0px; color: #ed1c24; }
+.resume .text p{ margin-bottom: 30px; line-height: 180%; color: #e5e5e5; font-size: 13px; }
+.resume .text hr{ display: block; background-color: #333; border-color: #333; line-height: 0px; margin: 20px 0px; }

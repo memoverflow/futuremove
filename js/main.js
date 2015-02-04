@@ -12,7 +12,7 @@ require.config({　
 		"fullPage": "jquery.fullPage.min",
 		"transit": "jquery.transit.min",
 		"slide": "responsiveslides.min",
-		"map": "http://api.map.baidu.com/api?v=1.5&ak=KfgGSNmbrkALKFcj3kZh3yYD",
+		"map": "http://api.map.baidu.com/api?v=1.5&ak=KfgGSNmbrkALKFcj3kZh3yYD"
 	},
 	shim: {
 		"fullPage": {
@@ -48,6 +48,8 @@ require(['jquery', 'fullPage', 'transit', "slide", "map"], function($,f,t,s,m) {
 		language:$(".language"),
 		partnerList : $(".partner-list"),
 		partnerIndex:0,
+		teamLoop:$(".team-photo"),
+		shadow:$("#gods"),
 		//car animation & header animation
 		carAnimate: function(index) {
 
@@ -140,7 +142,7 @@ require(['jquery', 'fullPage', 'transit', "slide", "map"], function($,f,t,s,m) {
 		},
 		bgTransition: function() {
 			lily.slider.find("ul").responsiveSlides({
-				timeout: 10000, 
+				timeout: 6000, 
 				speed: 1000
 			});
 		},
@@ -184,6 +186,31 @@ require(['jquery', 'fullPage', 'transit', "slide", "map"], function($,f,t,s,m) {
 				
 			});
 			//lily.partnerList
+		},
+		loopGods:function(){
+
+			var heads = lily.teamLoop.find("li");
+			heads.on("click",function(){
+				var shade = lily.shadow.find(".shade");
+				var index = heads.index(this);
+				lily.shadow.html($("#god"+(index+1)).html());
+				lily.shadow.show();
+				lily.shadow.find(".close").on("click",function(){
+					lily.shadow.hide();
+				});
+			});
+
+		},
+		loggle:function(){
+			log('[c="font-family: \'Helvetica Neue\', Helvetica, Arial, sans-serif; color: #fff; font-size: 20px; padding: 15px 20px; background: #444; border-radius: 4px; line-height: 100px; text-shadow: 0 1px #000"]FUTUREMOVE-飞驰镁物[c]');
+			log('如果你对下面这些有所了解：');
+			log('`Git Html5 Angular Zepto SeaJS Node Restful`');
+			log('`Struts Spring Hibernate iBatis`');
+			log('`Azure AWS`');
+			log('`ios android`');
+			log('请将简历发送至:[c="color: green"]contact@futuremove.cn[c]');
+			log('欢迎你来加入我们，徜徉在更广阔的天空，_http://www.lagou.com/gongsi/47865.html?speedShow=true_');
+			log('你必须热爱编程，并以此为乐趣，因为我们是GEEK: _http://futuremove.com_');
 		}
 	}
 
@@ -193,5 +220,7 @@ require(['jquery', 'fullPage', 'transit', "slide", "map"], function($,f,t,s,m) {
 		lily.map();
 		lily.bgTransition();
 		lily.partner();
+		lily.loopGods();
+		lily.loggle();
 	});
 });
