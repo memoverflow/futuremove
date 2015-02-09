@@ -12,6 +12,7 @@ require.config({　
 		"fullPage": "jquery.fullPage.min",
 		"transit": "jquery.transit.min",
 		"slide": "responsiveslides.min",
+		"detectmobilebrowser":"detectmobilebrowser",
 		"map": "http://api.map.baidu.com/api?v=1.5&ak=KfgGSNmbrkALKFcj3kZh3yYD"
 	},
 	shim: {
@@ -24,6 +25,9 @@ require.config({　
 		"slide": {
 			deps: ["jquery"]
 		},
+		"detectmobilebrowser":{
+			deps:["jquery"]
+		}
 	}
 });
 /**
@@ -31,7 +35,7 @@ require.config({　
  *Design by Zhongfei.Wei
  *Scripts by Lucas Ren
  */
-require(['jquery', 'fullPage', 'transit', "slide", "map"], function($,f,t,s,m) {
+require(['jquery', 'fullPage', 'transit', "slide", "map","detectmobilebrowser"], function($,f,t,s,m,d) {
 	var lily = {
 		distance: 48,
 		whiteCar: [1, 3, 5, 6],
@@ -211,16 +215,25 @@ require(['jquery', 'fullPage', 'transit', "slide", "map"], function($,f,t,s,m) {
 			log('请将简历发送至:[c="color: green"]contact@futuremove.cn[c]');
 			log('欢迎你来加入我们，徜徉在更广阔的天空，_http://www.lagou.com/gongsi/47865.html?speedShow=true_');
 			log('你必须热爱编程，并以此为乐趣，因为我们是GEEK: _http://futuremove.com_');
+		},
+		sniffer:function(){
+			return $.browser.mobile;
 		}
 	}
 
 	$(document).ready(function() {
-		lily.init();
-		lily.show();
-		lily.map();
-		lily.bgTransition();
-		lily.partner();
-		lily.loopGods();
-		lily.loggle();
+		if(lily.sniffer()){
+			$("body").html("<div  class='mobile-title'>The page is under construction...<br>移动网站建设中</div>").find(".mobile-title").addClass("shake").addClass("animated").addClass("hinge");
+		}else{
+			lily.init();
+			lily.show();
+			lily.map();
+			lily.bgTransition();
+			lily.partner();
+			lily.loopGods();
+			lily.loggle();
+		}
+		
+
 	});
 });
