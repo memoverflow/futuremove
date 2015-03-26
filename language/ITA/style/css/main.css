@@ -135,7 +135,7 @@ header h1.logo{ display: block; width: 300px; height: 38px; background: url(../i
 .view-2 ul li:nth-child(3){ bottom: 12%; left: 10%; }
 .view-2 ul li:nth-child(4){ bottom: 12%; right: 10%; }
 /*视图3*/
-.view-3{ position: relative; background: #fff; background: url(../images/view-3.jpg) bottom center no-repeat; background-size: auto 100%; }
+.view-3{ position: relative; background: #fff; background: url(../images/view-3.jpg) bottom center no-repeat; background-size: 100% auto; }
 @media screen and (min-width: 1441px) {
 	.view-3{ background: #000 url(../images/view-3.jpg) top no-repeat; background-size: 100% auto; } 
 } /*分辨率大于1440，针对高分辨率*/
@@ -147,12 +147,12 @@ header h1.logo{ display: block; width: 300px; height: 38px; background: url(../i
 .view-3 ul li strong{ display: block; text-align: center; font-size: 18px; margin-top: 62%; margin-bottom: 10px; color: #555; }
 .view-3 ul li span{ display: block; text-align: center; font-size: 20px; color: #aaa; }
 
-.view-3 ul li p{ display: none; background: rgba(0,0,0,0.8);  color: #fff; padding: 20px; font-size: 13px; }
+.view-3 ul li p{ position: absolute; top: -2px; left: -2px; z-index: 4; display: none; background: rgba(0,0,0,0.8);  color: #fff; font-size: 13px; padding: 40px; line-height: 24px; }
 .view-3 ul li:hover p{ display: block; }
-.view-3 ul li:nth-child(1) p{ margin: -120px 0px 0px 240px; width: 200px; }
-.view-3 ul li:nth-child(2) p{ margin: -120px 0px 0px -260px; width: 200px; }
-.view-3 ul li:nth-child(3) p{ margin: -120px 0px 0px 280px; width: 200px; }
-.view-3 ul li:nth-child(4) p{ margin: -120px 0px 0px -260px; width: 200px; }
+.view-3 ul li:nth-child(1) p{ width: 144px; height: 144px; border-radius: 112px; }
+.view-3 ul li:nth-child(2) p{ width: 184px; height: 144px; padding-top: 80px; border-radius: 132px; }
+.view-3 ul li:nth-child(3) p{ width: 184px; height: 144px; padding-top: 80px; border-radius: 132px; }
+.view-3 ul li:nth-child(4) p{ width: 144px; height: 144px; border-radius: 112px; }
 
 /*视图4*/
 .view-4{ background-color: #fff; }

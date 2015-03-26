@@ -10,13 +10,16 @@ require.config({　
     　　　
     paths: {　　　　　　
         "jquery": "jquery",
+        "detectmobilebrowser": "detectmobilebrowser",
         "fullPage": "jquery.fullPage.min",
         "transit": "jquery.transit.min",
         "slide": "responsiveslides.min",
-        "detectmobilebrowser": "detectmobilebrowser",
         "map": "http://api.map.baidu.com/api?v=1.5&ak=KfgGSNmbrkALKFcj3kZh3yYD"
     },
     shim: {
+        "detectmobilebrowser": {
+            deps: ["jquery"]
+        },
         "fullPage": {
             deps: ["jquery"]
         },
@@ -25,10 +28,8 @@ require.config({　
         },
         "slide": {
             deps: ["jquery"]
-        },
-        "detectmobilebrowser": {
-            deps: ["jquery"]
         }
+        
     }
 });
 /**
@@ -123,6 +124,7 @@ require(['jquery', 'fullPage', 'transit', "slide", "map", "detectmobilebrowser"]
                 resize: true,
                 verticalCentered: true,
                 keyboardScrolling: true,
+					scrollOverflow:true,
                 onLeave: function(index, nextIndex, direction) {
                     lily.move(lily.car, nextIndex);
                 },
@@ -197,7 +199,7 @@ require(['jquery', 'fullPage', 'transit', "slide", "map", "detectmobilebrowser"]
             //lily.partnerList
         },
         loopGods: function() {
-
+			$.fn.fullpage.setAllowScrolling(false);
             var heads = lily.teamLoop.find("li");
             heads.on("click", function() {
                 var shade = lily.shadow.find(".shade");
@@ -206,9 +208,13 @@ require(['jquery', 'fullPage', 'transit', "slide", "map", "detectmobilebrowser"]
                 lily.shadow.show();
                 lily.shadow.find(".close").on("click", function() {
                     lily.shadow.hide();
+					$.fn.fullpage.setAllowScrolling(true);
                 });
-            });
 
+				var height = $("body").height();
+				$(".text").height(height-60);
+            });
+			
         },
         loggle: function() {
             log('[c="font-family: \'Helvetica Neue\', Helvetica, Arial, sans-serif; color: #fff; font-size: 20px; padding: 15px 20px; background: #444; border-radius: 4px; line-height: 100px; text-shadow: 0 1px #000"]FUTUREMOVE-飞驰镁物[c]');
@@ -235,7 +241,7 @@ require(['jquery', 'fullPage', 'transit', "slide", "map", "detectmobilebrowser"]
 
 
     if (lily.sniffer()) {
-        $("body").html("<div  class='mobile-title'>The page is under construction...<br>移动网站建设中</div>").find(".mobile-title").addClass("shake").addClass("animated").addClass("hinge");
+        window.location = "mobile.html";
     } else {
         $(document).ready(function() {
             lily.init();
